@@ -43,7 +43,7 @@ public class CursoControlador {
         return cursos;
     }
 
-    @GetMapping(value = "cursos/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "cursos/get/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Curso> getCursosByName(@PathVariable("name") String nombre) {
         List<Curso> aux = new ArrayList<>();
         for (Curso curso : cursos) {
@@ -66,16 +66,9 @@ public class CursoControlador {
         return cursos;
     }
 
-    @DeleteMapping("curso/{name}")
-    public boolean eliminarCurso(@PathVariable("name") String name) {
-
-        boolean succesDelete = false;
-
-        if (cursos.removeIf(c -> c.getNombre().equals(name))) {
-            succesDelete = true;
-        }
-
-        return succesDelete;
+    @DeleteMapping(value = "cursos/delete/{name}")
+    public void eliminarCurso(@PathVariable("name") String nombre) {
+        cursos.removeIf(c -> c.getNombre().equals(nombre));
     }
 
 }
