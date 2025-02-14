@@ -41,7 +41,8 @@ Para desarrollar y ejecutar proyectos de Java y Spring Boot en Visual Studio Cod
 
 1. **Java Extension Pack**: Este paquete incluye varias extensiones esenciales para el desarrollo en Java, como el soporte para el lenguaje Java, depuración, pruebas y administración de proyectos. Puede instalarlo desde el [Marketplace de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
-2. **Spring Boot Extension Pack**: Este paquete proporciona herramientas específicas para el desarrollo con Spring Boot, incluyendo soporte para inicialización de proyectos, edición de archivos de configuración y administración de dependencias. Disponible en el [Marketplace de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot).
+2. **Spring Boot Extension Pack**: Este paquete proporciona herramientas específicas para el desarrollo con Spring Boot, incluyendo soporte para inicialización de proyectos, edición de archivos de configuración y administración de dependencias. Disponible en el [Marketplace de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack).
+
 
 3. **Debugger for Java**: Esta extensión permite depurar aplicaciones Java directamente desde Visual Studio Code. Es parte del Java Extension Pack, pero también puede instalarse por separado desde el [Marketplace de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
