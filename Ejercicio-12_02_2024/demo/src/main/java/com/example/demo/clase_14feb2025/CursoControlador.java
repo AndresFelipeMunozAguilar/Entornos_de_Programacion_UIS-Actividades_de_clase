@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.http.MediaType;
@@ -52,10 +54,26 @@ public class CursoControlador {
         return aux;
     }
 
-    @PutMapping("curso/{name}")
-    public boolean eliminarCurso(@PathVariable String name, @RequestBody boolean succesDelete) {
+    @PutMapping(value = "curso", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Curso> actualizarCurso(@RequestBody Curso curso) {
 
-        cursos.removeIf(c -> c.getNombre().equals(name));
+        for (int i = 0; i < cursos.size(); i++) {
+            if (cursos.get(i).getNombre().equals(curso.getNombre())) {
+                cursos.set(i, curso);
+            }
+        }
+
+        return cursos;
+    }
+
+    @DeleteMapping("curso/{name}")
+    public boolean eliminarCurso(@PathVariable("name") String name) {
+
+        boolean succesDelete = false;
+
+        if (cursos.removeIf(c -> c.getNombre().equals(name))) {
+            succesDelete = true;
+        }
 
         return succesDelete;
     }
