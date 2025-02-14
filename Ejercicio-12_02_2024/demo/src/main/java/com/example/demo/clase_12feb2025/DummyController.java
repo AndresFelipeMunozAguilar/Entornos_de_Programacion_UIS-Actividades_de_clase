@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.clase_12feb2025;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;

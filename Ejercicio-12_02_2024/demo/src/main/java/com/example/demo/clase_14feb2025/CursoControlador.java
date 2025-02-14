@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
+@RequestMapping("/")
 public class CursoControlador {
 
     private List<Curso> cursos;
@@ -34,6 +39,25 @@ public class CursoControlador {
     @GetMapping(value = "cursos", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Curso> getCursos() {
         return cursos;
+    }
+
+    @GetMapping(value = "cursos/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Curso> getCursosByName(@PathVariable("name") String nombre) {
+        List<Curso> aux = new ArrayList<>();
+        for (Curso curso : cursos) {
+            if (curso.getNombre().contains(nombre)) {
+                aux.add(curso);
+            }
+        }
+        return aux;
+    }
+
+    @PutMapping("curso/{name}")
+    public boolean eliminarCurso(@PathVariable String name, @RequestBody boolean succesDelete) {
+
+        cursos.removeIf(c -> c.getNombre().equals(name));
+
+        return succesDelete;
     }
 
 }
