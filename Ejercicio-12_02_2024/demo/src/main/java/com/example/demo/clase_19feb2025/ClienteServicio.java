@@ -10,7 +10,7 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class ClienteServicio implements IClienteServicio {
- 
+
     @Autowired
     private ClienteRepositorio clientRepo;
 
@@ -18,11 +18,19 @@ public class ClienteServicio implements IClienteServicio {
     public List<ModeloCliente> getClientes() {
         return clientRepo.findAll();
     }
-    
+
     @Override
     public ModeloCliente getCliente(Integer id) {
         return clientRepo.findById(id).orElse(null);
     }
 
-    @
+    @Override
+    public ModeloCliente grabarCliente(ModeloCliente cliente) {
+        return clientRepo.save(cliente);
+    }
+
+    @Override
+    public void deleteCliente(Integer id) {
+        clientRepo.deleteById(id);
+    }
 }

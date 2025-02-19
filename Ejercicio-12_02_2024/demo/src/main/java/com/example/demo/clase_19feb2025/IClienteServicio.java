@@ -16,7 +16,7 @@ public interface IClienteServicio {
 
     ModeloCliente getCliente(Integer id);
 
-    void grabarCliente(ModeloCliente cliente);
+    ModeloCliente grabarCliente(ModeloCliente cliente);
 
     void deleteCliente(Integer id);
 
