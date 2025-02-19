@@ -41,7 +41,7 @@ public class ClienteControlador {
         return (clienteService.getClientes());
     }
 
-    @GetMapping("/list/(id)")
+    @GetMapping("/list/{id}")
     public ModeloCliente buscarPorId(@PathVariable Integer id) {
         return clienteService.getCliente(id);
     }
