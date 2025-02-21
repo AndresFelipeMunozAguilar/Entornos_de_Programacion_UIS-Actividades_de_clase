@@ -35,6 +35,12 @@ public class ClienteControlador {
 
     @Autowired
     private ClienteServicio clienteService;
+    private ModeloCliente cliente;
+
+    @GetMapping("/hola")
+    public String hola() {
+        return cliente.toString();
+    }
 
     @GetMapping("/list")
     public List<ModeloCliente> consultarTodo() {
