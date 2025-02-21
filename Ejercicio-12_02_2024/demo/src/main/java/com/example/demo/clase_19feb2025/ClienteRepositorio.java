@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * JPA. Hay métodos integrados para operaciones CRUD en JpaRepository, no
  * es necesario escribir casi ninguna consulta SQL. 
 */
-public interface ClienteRepositorio extends JpaRepository<ModeloCliente, Integer> {
+public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
 
 }

@@ -35,32 +35,26 @@ public class ClienteControlador {
 
     @Autowired
     private ClienteServicio clienteService;
-    private ModeloCliente cliente;
-
-    @GetMapping("/hola")
-    public String hola() {
-        return cliente.toString();
-    }
 
     @GetMapping("/list")
-    public List<ModeloCliente> consultarTodo() {
+    public List<Cliente> consultarTodo() {
         return (clienteService.getClientes());
     }
 
     @GetMapping("/list/{id}")
-    public ModeloCliente buscarPorId(@PathVariable Integer id) {
+    public Cliente buscarPorId(@PathVariable Integer id) {
         return clienteService.getCliente(id);
     }
 
     @PostMapping("/")
-    public ResponseEntity<ModeloCliente> agregar(@RequestBody ModeloCliente cliente) {
-        ModeloCliente obj = clienteService.grabarCliente(cliente);
+    public ResponseEntity<Cliente> agregar(@RequestBody Cliente cliente) {
+        Cliente obj = clienteService.grabarCliente(cliente);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
     @PutMapping("/")
-    public ResponseEntity<ModeloCliente> editar(@RequestBody ModeloCliente cliente) {
-        ModeloCliente obj = clienteService.getCliente(cliente.getIdcliente());
+    public ResponseEntity<Cliente> editar(@RequestBody Cliente cliente) {
+        Cliente obj = clienteService.getCliente(cliente.getIdcliente());
         if (obj != null) {
 
             obj.setDireccion(cliente.getDireccion());
@@ -77,8 +71,8 @@ public class ClienteControlador {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<ModeloCliente> eliminar(@PathVariable Integer id) {
-        ModeloCliente obj = clienteService.getCliente(id);
+    public ResponseEntity<Cliente> eliminar(@PathVariable Integer id) {
+        Cliente obj = clienteService.getCliente(id);
 
         if (obj != null) {
             clienteService.deleteCliente(id);

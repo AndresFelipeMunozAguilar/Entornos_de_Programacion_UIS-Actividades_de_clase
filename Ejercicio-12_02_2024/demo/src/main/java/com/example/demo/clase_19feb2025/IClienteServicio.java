@@ -12,12 +12,12 @@ import java.util.List;
  */
 public interface IClienteServicio {
 
-    List<ModeloCliente> getClientes();
+    public List<Cliente> getClientes();
 
-    ModeloCliente getCliente(Integer id);
+    public Cliente getCliente(Integer id);
 
-    ModeloCliente grabarCliente(ModeloCliente cliente);
+    public Cliente grabarCliente(Cliente cliente);
 
-    void deleteCliente(Integer id);
+    public void deleteCliente(Integer id);
 
 }

@@ -15,17 +15,17 @@ public class ClienteServicio implements IClienteServicio {
     private ClienteRepositorio clientRepo;
 
     @Override
-    public List<ModeloCliente> getClientes() {
+    public List<Cliente> getClientes() {
         return clientRepo.findAll();
     }
 
     @Override
-    public ModeloCliente getCliente(Integer id) {
+    public Cliente getCliente(Integer id) {
         return clientRepo.findById(id).orElse(null);
     }
 
     @Override
-    public ModeloCliente grabarCliente(ModeloCliente cliente) {
+    public Cliente grabarCliente(Cliente cliente) {
         return clientRepo.save(cliente);
     }
 

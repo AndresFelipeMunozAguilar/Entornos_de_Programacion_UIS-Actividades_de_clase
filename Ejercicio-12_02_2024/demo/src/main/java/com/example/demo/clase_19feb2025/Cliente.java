@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = ModeloCliente.TABLE_NAME)
+@Table(name = Cliente.TABLE_NAME)
 
 /*
  * Esta es una clase de entidad JPA simple con el nombre de la clase y los
@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
  * producto de la tabla en la base de datos, para minimizar las anotaciones
  * utilizadas.
  */
-public class ModeloCliente {
+public class Cliente {
 
     // Atributos
     public static final String TABLE_NAME = "cliente";
@@ -29,7 +29,7 @@ public class ModeloCliente {
     private String direccion;
     private String email;
 
-    public ModeloCliente(int idcliente, String documento, String tipdoc, String nombres, String apellidos,
+    public Cliente(int idcliente, String documento, String tipdoc, String nombres, String apellidos,
             String direccion, String email) {
 
         this.idcliente = idcliente;
