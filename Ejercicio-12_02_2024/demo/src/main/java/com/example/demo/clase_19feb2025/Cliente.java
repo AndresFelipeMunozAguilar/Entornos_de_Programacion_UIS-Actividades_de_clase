@@ -5,9 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
-@Entity
-@Table(name = Cliente.TABLE_NAME)
+import lombok.Data;
 
 /*
  * Esta es una clase de entidad JPA simple con el nombre de la clase y los
@@ -15,10 +13,13 @@ import jakarta.persistence.Table;
  * producto de la tabla en la base de datos, para minimizar las anotaciones
  * utilizadas.
  */
+@Entity
+@Table(name = Cliente.TABLE_NAME)
 public class Cliente {
 
     // Atributos
     public static final String TABLE_NAME = "cliente";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcliente;
