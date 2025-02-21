@@ -31,9 +31,13 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 6. **Base de Datos**: Si su proyecto requiere una base de datos, asegúrese de tener una base de datos compatible instalada y configurada. Las opciones comunes incluyen MySQL, PostgreSQL, y H2 (para pruebas).
 
-7. **Configuración del Proyecto**: Configure su proyecto Spring Boot mediante el archivo `application.properties` o `application.yml` para definir propiedades como la configuración de la base de datos, el puerto del servidor, y otros parámetros específicos de la aplicación.
+7. **Configuración del Proyecto**: Configure su proyecto Spring Boot mediante el archivo `application.properties` para definir propiedades como la configuración de la base de datos, el puerto del servidor, y otros parámetros específicos de la aplicación.
 
 Con estos requerimientos, estará listo para ejecutar y desarrollar esto proyecto de Spring Boot con Java.
+
+8. **Edición del Proyecto**: Para editar y gestionar las dependencias de su proyecto, utilice el archivo `pom.xml`. Puede agregar dependencias, a través de generar un proyecto inicial con las dependencias necesarias utilizando la página web [Spring Initializr](https://start.spring.io/). Simplemente seleccione las dependencias que necesita y descargue el proyecto generado, que incluirá un archivo `pom.xml` preconfigurado.
+
+Con estos requerimientos, estará listo para ejecutar y desarrollar este proyecto de Spring Boot con Java.
 
 ## Extensiones para Visual Studio Code
 
