@@ -1,11 +1,11 @@
 package com.example.demo.clase_19feb2025;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
 
 /*
  * Esta es una clase de entidad JPA simple con el nombre de la clase y los
@@ -13,6 +13,7 @@ import lombok.Data;
  * producto de la tabla en la base de datos, para minimizar las anotaciones
  * utilizadas.
  */
+
 @Entity
 @Table(name = Cliente.TABLE_NAME)
 public class Cliente {
@@ -23,15 +24,53 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcliente;
+
+    @Column(name = "documento")
     private String documento;
+
+    @Column(name = "tipdoc")
     private String tipdoc;
+
+    @Column(name = "nombres")
     private String nombres;
+
+    @Column(name = "apellidos")
     private String apellidos;
+
+    @Column(name = "direccion")
     private String direccion;
+
+    @Column(name = "email")
     private String email;
 
-    public Cliente(int idcliente, String documento, String tipdoc, String nombres, String apellidos,
-            String direccion, String email) {
+    /*
+     * Este es un constructor vacío o por defecto.
+     * No tiene parámetros ni lógica dentro, pues,
+     * su función principal es permitir la creación de un objeto
+     * de tipo Cliente sin la necesidad de proporcionar valores
+     * iniciales; lo cual es requerido por Hibernate y JPA para
+     * poder instanciar objetos cuando se recuperan datos de
+     * la base de datos.
+     */
+    public Cliente() {
+    }
+
+    /*
+     * Por el contrario, este constructor tiene parámetros,
+     * debido a que existen solicitudes HTTP que requieren,
+     * como parámetro, un objeto de tipo Cliente, para realizar
+     * operaciones CRUD con este objeto. Por tanto, es necesario
+     * disponer de un constructor que permita inicilizar valores
+     * de los atributos de un objeto de tipo "Cliente"
+     */
+    public Cliente(
+            int idcliente,
+            String documento,
+            String tipdoc,
+            String nombres,
+            String apellidos,
+            String direccion,
+            String email) {
 
         this.idcliente = idcliente;
         this.documento = documento;
@@ -111,5 +150,6 @@ public class Cliente {
                 ", direccion='" + direccion + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+
     }
 }
