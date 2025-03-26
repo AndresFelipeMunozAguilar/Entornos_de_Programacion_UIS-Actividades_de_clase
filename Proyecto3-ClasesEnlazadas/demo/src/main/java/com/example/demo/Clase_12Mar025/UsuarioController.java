@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Clase_26Mar2025.LoginDto;
+
 import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
-
-
-
-
 
 @RestController
 @RequestMapping("/usuarios")
@@ -35,11 +34,10 @@ public class UsuarioController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Usuario> agregar (@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> agregar(@RequestBody Usuario usuario) {
         Usuario obj = usuarioService.nuevoUsuario(usuario);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
-
 
     @PutMapping("/")
     public ResponseEntity<Usuario> editar(@RequestBody Usuario usuario) {
@@ -58,7 +56,6 @@ public class UsuarioController {
         }
     }
 
-    
     @DeleteMapping("/{id}")
     public ResponseEntity<Usuario> eliminar(@PathVariable Long id) {
         Usuario obj = usuarioService.buscarUsuario(id);
@@ -69,5 +66,20 @@ public class UsuarioController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
+    @PostMapping("/loginclient") // ruta del servicio desde el front deben direccionar a esta ruta
+    public int login(@RequestBody LoginDto usuario) {
+
+        int responseLogin = usuarioService.login(usuario);
+        return responseLogin;
+
+    }
+
+    @PostMapping("/login") // ruta del servicio desde el front deben direccionar a esta ruta
+    public ResponseEntity<?> loginCliente(@RequestBody LoginDto usuario) {
+
+        return usuarioService.ingresar(usuario);
+
+    }
+
 }

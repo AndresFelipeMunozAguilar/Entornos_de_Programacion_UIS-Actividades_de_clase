@@ -1,6 +1,6 @@
 package com.example.demo.Clase_26Mar2025;
 
-public class LogInDTO {
+public class LoginDto {
 
     private String nombreUsuario;
     private String password;
